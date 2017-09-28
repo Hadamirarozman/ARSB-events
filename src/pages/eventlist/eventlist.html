@@ -1,0 +1,49 @@
+<ion-header>
+    <ion-navbar no-border-bottom>
+      <ion-title>
+        Events
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+    <div >
+        <ion-item>
+            <ion-label>Date</ion-label>
+            <ion-datetime displayFormat="YYYY-MM-DD" [(ngModel)]="date" (ionChange)="getData()"></ion-datetime>
+          </ion-item>
+      <ion-list *ngIf="events" >
+        <ion-item *ngFor="let event of events" >
+          <ion-thumbnail item-start>
+            <img src="assets/img/thumbnail-puppy-1.jpg">
+          </ion-thumbnail>
+          <h2>{{event.eventname}}</h2>
+          <p>
+            Event Details : {{event.description}}
+          </p>
+          <ion-row no-padding>
+            <ion-col>
+              <button ion-button clear small color="primary" icon-start (click)="presentLoadingText()">
+              <ion-icon name='pin'></ion-icon>
+              Location
+              
+              </button>
+              
+            </ion-col>
+            <ion-col >
+              <button ion-button clear small color="primary" icon-start>
+                <ion-icon name='paper-plane'></ion-icon>
+                Join 
+              </button>
+            </ion-col>
+            <ion-col>
+              <button ion-button clear small color="primary" icon-start>
+                <ion-icon name='share-alt'></ion-icon>
+                Share
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-item>
+      </ion-list>
+    </div>
+  </ion-content>

@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+   <ion-item *ngFor="let event of events">
+   <h2>Event : {{event.eventname}}</h2>
+   <p class="item-description">Venue : {{event.venue}}</p>
+   <p >Event Date : {{event.eventdate}}</p>   
+   <p >Event Details : {{event.description}}</p>
+   <button ion-button block (click) = "presentLoadingText()">Join Event</button>
+   </ion-item>
+ </ion-list>
+</ion-content>
